@@ -9,12 +9,14 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    needs: create_file
     steps:
       - name: Test if file exists
         run: find . -name file.txt
         
   read_file:
     runs-on: ubuntu-latest
+    needs: test
     steps:
       - name: Read file content
         run: cat file.txt
