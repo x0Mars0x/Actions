@@ -1,4 +1,4 @@
-Name: My Second Workflow
+name: My Second Workflow
 on: push
 jobs:
   create_file:
