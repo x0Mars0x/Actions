@@ -1,0 +1,20 @@
+Name: My Second Workflow
+on: push
+jobs:
+  create_file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Welcome message
+      run: echo "my first GitHub message" > file.txt
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test if file exists
+        run: find . -name file.txt
+        
+  read_file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read file content
+        run: cat file.txt
