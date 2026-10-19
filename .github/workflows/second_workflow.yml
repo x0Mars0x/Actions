@@ -16,7 +16,7 @@ jobs:
         
   read_file:
     runs-on: ubuntu-latest
-    needs: test
+    needs: create_file
     steps:
       - name: Read file content
         run: cat file.txt
