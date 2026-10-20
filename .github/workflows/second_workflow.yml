@@ -1,5 +1,7 @@
 name: My Second Workflow
 on: push
+env:
+  FILE_NAME: file.txt
 jobs:
   create_file:
     runs-on: ubuntu-latest
@@ -9,7 +11,7 @@ jobs:
     - uses: actions/upload-artifact@v7
       with:
         name: my-file
-        path: file.txt
+        path: ${FILE_NAME}
 
   test:
     runs-on: ubuntu-latest
@@ -19,7 +21,7 @@ jobs:
         with:
           name: my-file
       - name: Test if file exists
-        run: find . -name file.txt
+        run: find . -name ${FILE_NAME}
         
   read_file:
     runs-on: ubuntu-latest
@@ -29,4 +31,4 @@ jobs:
         with:
           name: my-file    
       - name: Read file content
-        run: cat file.txt
+        run: cat ${FILE_NAME}
