@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Welcome message
-      run: echo "my first GitHub message" > "$FILE_NAME"
+      run: echo "my first GitHub message" > $FILE_NAME
     - uses: actions/upload-artifact@v7
       with:
         name: my-file
-        path: "$FILE_NAME"
+        path: ${{env.FILE_NAME}}
 
   test:
     runs-on: ubuntu-latest
@@ -21,7 +21,7 @@ jobs:
         with:
           name: my-file
       - name: Test if file exists
-        run: find . -name "$FILE_NAME"
+        run: find . -name $FILE_NAME
         
   read_file:
     runs-on: ubuntu-latest
@@ -31,4 +31,4 @@ jobs:
         with:
           name: my-file    
       - name: Read file content
-        run: cat "$FILE_NAME"
+        run: cat $FILE_NAME
