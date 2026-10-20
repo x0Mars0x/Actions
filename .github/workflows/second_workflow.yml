@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Welcome message
-      run: echo "my first GitHub message" > file.txt
+      run: echo "my first GitHub message" > ${FILE_NAME}
     - uses: actions/upload-artifact@v7
       with:
         name: my-file
